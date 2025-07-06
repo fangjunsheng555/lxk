@@ -17,22 +17,8 @@
 
 <body>
 
-    <!-- 顶部音乐提示条 -->
-    <div id="musicBar" style="
-        position: fixed; top: 0; left: 0; width: 100vw; background: rgba(255, 142, 199, 0.93);
-        color: white; text-align: center; padding: 16px 0 14px 0; z-index: 10000; font-size: 1.13em;
-        box-shadow: 0 2px 12px rgba(255,142,199,0.20); letter-spacing: 1px;">
-      是否播放音乐？
-      <button id="musicYes" style="
-        margin-left: 20px; padding: 7px 22px; border-radius: 30px; background: #fff0f5; color: #ff69b4;
-        font-weight: bold; border: none; font-size:1em; cursor:pointer; margin-right: 12px;">YES</button>
-      <button id="musicNo" style="
-        padding: 7px 22px; border-radius: 30px; background: #fff0f5; color: #ff69b4;
-        font-weight: bold; border: none; font-size:1em; cursor:pointer;">NO</button>
-    </div>
-
-    <audio id="audio" class="song" loop>
-        <source src="./music/hbd.mp3">
+    <audio class="song" loop autoplay>
+        <source src="./music/hbd.mpeg">
         </source>
         Your browser isn't invited for super fun audio time.
     </audio>
@@ -162,24 +148,11 @@
         </div>
     </div>
 
+</body>
     <!-- Greensock -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <!-- Sweetalert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="application/javascript" src="./script/main.js"></script>
-    <!-- 音乐条控制JS -->
-    <script>
-      // 自动移除autoplay防止Safari警告（保险写法）
-      document.querySelector('audio.song').removeAttribute('autoplay');
-      // 音乐条交互
-      document.getElementById("musicYes").onclick = function() {
-        var audio = document.getElementById("audio");
-        audio.play();
-        document.getElementById("musicBar").style.display = "none";
-      };
-      document.getElementById("musicNo").onclick = function() {
-        document.getElementById("musicBar").style.display = "none";
-      };
-    </script>
-</body>
+
 </html>
